@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_database/providers/transaction_provider.dart';
 import 'package:flutter_database/screens/form_screen.dart';
 import 'package:flutter_database/screens/home_screen.dart';
+// ignore: unused_import
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+// ignore: unused_import
 import 'models/Transactions.dart';
 
 void main() {
@@ -48,7 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         backgroundColor: Colors.blue,
         body: TabBarView(
-          children: [HomeScreen(), FormScreen()],
+          children: [
+            // HomeScreen(),
+            //  FormScreen()
+          ],
         ),
         bottomNavigationBar: TabBar(
           tabs: [
@@ -56,10 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.list),
               text: "รายการธุรกรรม",
             ),
-            Tab(
-              icon: Icon(Icons.add),
-              text: "เพิ่มข้อมูล"
-              )
+            Tab(icon: Icon(Icons.add), text: "เพิ่มข้อมูล")
           ],
         ),
       ),

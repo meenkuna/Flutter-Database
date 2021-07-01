@@ -20,12 +20,14 @@ class TransactionDB {
     Directory appDirectory = await getApplicationDocumentsDirectory();
     String dbLocation = join(appDirectory.path, dbName);
     // สร้าง database
+    // ignore: await_only_futures
     DatabaseFactory dbFactory = await databaseFactoryIo;
     Database db = await dbFactory.openDatabase(dbLocation);
     return db;
   }
 
   //บันทึกข้อมูล
+  // ignore: non_constant_identifier_names
   Future<int> InsertData(Transactions statement) async {
     //ฐานข้อมูล => Store
     // transaction.db => expense
@@ -51,6 +53,7 @@ class TransactionDB {
     var store = intMapStoreFactory.store("expense");
     var snapshot = await store.find(db,
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
+    // ignore: deprecated_member_use
     List transactionList = List<Transactions>();
     //ดึงมาทีละแถว
     for (var record in snapshot) {
