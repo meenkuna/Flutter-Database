@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_database/providers/transaction_provider.dart';
-import 'package:flutter_database/screens/form_screen.dart';
-import 'package:flutter_database/screens/home_screen.dart';
-// ignore: unused_import
-import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
-// ignore: unused_import
-import 'models/Transactions.dart';
+import 'package:flutter_database/main1.dart';
+import 'package:your_splash/your_splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,52 +9,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      // debugShowCheckedModeBanner: false,
-      providers: [
-        ChangeNotifierProvider(create: (context) {
-          return TransactionProvider();
-        }),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: MyHomePage(title: 'แอพบัญชี'),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        backgroundColor: Colors.blue,
-        body: TabBarView(
-          children: [HomeScreen(), FormScreen()],
-        ),
-        bottomNavigationBar: TabBar(
-          tabs: [
-            Tab(
-              icon: Icon(Icons.list),
-              text: "รายการธุรกรรม",
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen.timed(
+        seconds: 3,
+        route: MaterialPageRoute(builder: (_) => MyApp1()),
+        body: Scaffold(
+          body: InkWell(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage('https://bit.ly/3hD5Tj8'),
+                ),
+              ),
             ),
-            Tab(icon: Icon(Icons.add), text: "เพิ่มข้อมูล")
-          ],
+          ),
         ),
       ),
     );

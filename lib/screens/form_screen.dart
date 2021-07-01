@@ -5,7 +5,7 @@ import 'package:flutter_database/providers/transaction_provider.dart';
 import 'package:flutter_database/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../main.dart';
+import '../main1.dart';
 
 class FormScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
