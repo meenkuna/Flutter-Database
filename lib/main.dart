@@ -50,10 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         backgroundColor: Colors.blue,
         body: TabBarView(
-          children: [
-            // HomeScreen(),
-            //  FormScreen()
-          ],
+          children: [HomeScreen(), FormScreen()],
         ),
         bottomNavigationBar: TabBar(
           tabs: [

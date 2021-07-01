@@ -5,6 +5,7 @@ import 'package:flutter_database/providers/transaction_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+// ignore: unused_import
 import 'form_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,23 +14,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-    @override
+  @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
-    Provider.of<TransactionProvider>(context,listen: false).initData();
+    Provider.of<TransactionProvider>(context, listen: false).initData();
   }
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("แอพบัญชี"),
           actions: [
             IconButton(
                 icon: Icon(Icons.exit_to_app),
                 onPressed: () {
-                    SystemNavigator.pop();
+                  SystemNavigator.pop();
                 })
           ],
         ),
@@ -60,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         title: Text(data.title),
-                        subtitle: Text(DateFormat("dd/MM/yyyy").format(data.date)),
+                        subtitle:
+                            Text(DateFormat("dd/MM/yyyy").format(data.date)),
                       ),
                     );
                   });
