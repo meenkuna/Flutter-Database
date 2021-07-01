@@ -27,7 +27,7 @@ class FormScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  decoration: new InputDecoration(labelText: "ชื่อรายการ"),
+                  decoration: new InputDecoration(labelText: "ชื่อ"),
                   autofocus: false,
                   controller: titleController,
                   validator: (String str) {
@@ -39,7 +39,7 @@ class FormScreen extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+                  decoration: new InputDecoration(labelText: "รายละเอียด"),
                   keyboardType: TextInputType.number,
                   controller: amountController,
                   validator: (String str) {
