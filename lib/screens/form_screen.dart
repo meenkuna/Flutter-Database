@@ -9,9 +9,9 @@ import '../main.dart';
 class FormScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
 
-  // controller 
-  final titleController = TextEditingController();//รับค่าชื่อรายการ
-  final amountController = TextEditingController();//รับตัวเลขจำนวนเงิน
+  // controller
+  final titleController = TextEditingController(); //รับค่าชื่อรายการ
+  final amountController = TextEditingController(); //รับตัวเลขจำนวนเงิน
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,54 +29,56 @@ class FormScreen extends StatelessWidget {
                   decoration: new InputDecoration(labelText: "ชื่อรายการ"),
                   autofocus: false,
                   controller: titleController,
-                  validator: (String str){
-                      //ชื่อรายการเป็นค่าว่าง
-                      if(str.isEmpty){
-                          return "กรุณาป้อนชื่อรายการ";
-                      }
-                      return null;
+                  validator: (String str) {
+                    //ชื่อรายการเป็นค่าว่าง
+                    if (str.isEmpty) {
+                      return "กรุณาป้อนชื่อรายการ";
+                    }
+                    return null;
                   },
                 ),
                 TextFormField(
                   decoration: new InputDecoration(labelText: "จำนวนเงิน"),
-                  keyboardType:TextInputType.number,
+                  keyboardType: TextInputType.number,
                   controller: amountController,
-                  validator: (String str){
-                    if(str.isEmpty){
-                          return "กรุณาป้อนจำนวนเงิน";
+                  validator: (String str) {
+                    if (str.isEmpty) {
+                      return "กรุณาป้อนจำนวนเงิน";
                     }
-                    if(double.parse(str)<=0){
-                          return "กรุณาป้อนตัวเลขมากกว่า 0";
+                    if (double.parse(str) <= 0) {
+                      return "กรุณาป้อนตัวเลขมากกว่า 0";
                     }
                     return null;
                   },
                 ),
                 FlatButton(
                   child: Text("เพิ่มข้อมูล"),
-                  color: Colors.purple,
-                  textColor: Colors.white,
-                  onPressed: (){
-                      if(formKey.currentState.validate()){
-                          var title = titleController.text;
-                          var amount = amountController.text;
-                          //เตรียมข้อมูล
-                          Transactions statement = Transactions(
-                            title: title,
-                            amount: double.parse(amount),
-                            date:DateTime.now()
-                          );//object
+                  color: Colors.orange,
+                  textColor: Colors.blue,
+                  onPressed: () {
+                    if (formKey.currentState.validate()) {
+                      var title = titleController.text;
+                      var amount = amountController.text;
+                      //เตรียมข้อมูล
+                      Transactions statement = Transactions(
+                          title: title,
+                          amount: double.parse(amount),
+                          date: DateTime.now()); //object
 
-                          //เรียก Provider 
-                          var provider = Provider.of<TransactionProvider>(context,listen:false);
-                          provider.addTransaction(statement);
-                          Navigator.push(context, MaterialPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context){
-                              return MyHomePage();
-                          }));
-                      } 
-                  }, 
-                  )
+                      //เรียก Provider
+                      var provider = Provider.of<TransactionProvider>(context,
+                          listen: false);
+                      provider.addTransaction(statement);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (context) {
+                                return MyHomePage();
+                              }));
+                    }
+                  },
+                )
               ],
             ),
           ),
