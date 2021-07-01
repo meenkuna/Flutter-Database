@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
       providers: [
         ChangeNotifierProvider(create: (context) {
           return TransactionProvider();
